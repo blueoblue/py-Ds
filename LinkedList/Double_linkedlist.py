@@ -1,10 +1,10 @@
 '''
- > SourceName : Doubly_linklist.py
+ > SourceName : Double_linklist.py
  > Describe   : 双向链表
  > Version    : 0.1
 '''
 from Unorder_linkedlist import *
-class DiubleNode(Node):
+class DoubleNode(Node):
 	def __init__(self,data):
 		super().__init__(data)
 		self._previous=None
@@ -16,7 +16,7 @@ class DiubleNode(Node):
 		self._previous=node
 class DoubleLinkedlist(UnorderLinkedlist):
 	def addhead(self,data):
-		node=Node(data)
+		node=DoubleNode(data)
 		if not self._head:
 			self._head=node
 		else:
@@ -34,7 +34,7 @@ class DoubleLinkedlist(UnorderLinkedlist):
 			while number!=self._length:
 				number+=1
 				current=current.next
-			node=Node(data)
+			node=DoubleNode(data)
 			node.previous=current
 			current.next=node
 			self._length+=1
@@ -47,7 +47,7 @@ class DoubleLinkedlist(UnorderLinkedlist):
 		else:
 			index=0
 			current=self._head
-			node=Node(data)
+			node=DoubleNode(data)
 			while index!=position:
 				index+=1
 				current=current.next
