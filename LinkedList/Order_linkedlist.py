@@ -36,7 +36,7 @@ class OrderLinkedlist(Ulinkedlist):
 
 	def pop(self,data):
 		if not self._head:
-			raise EmptyError()
+			raise EmptyError(self)
 		else:
 			try:
 				previous=None

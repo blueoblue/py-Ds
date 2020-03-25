@@ -4,9 +4,9 @@
  > Version    : 0.2
 '''
 class LinkedlistEmptyError(Exception):
-	def __init__(self,msg='Linkedlist is empty'):
+	def __init__(self,obj):
 		super().__init__()
-		self.msg=msg
+		self.msg=f'{obj} is empty.'
 	def __str__(self):
 		return self.msg
 class Node(object):
@@ -63,7 +63,7 @@ class UnorderLinkedlist(object):
 		position=-1 ->self.length
 		'''
 		if not self._head:
-			raise LinkedlistEmptyError()
+			raise LinkedlistEmptyError(self)
 		elif position>self._length:
 			raise IndexError('index is too large')
 		if position==0:
@@ -84,7 +84,7 @@ class UnorderLinkedlist(object):
 		return self._length
 	def pop(self,position=0):
 		if not self._head:
-			raise LinkedlistEmptyError()
+			raise LinkedlistEmptyError(self)
 		elif position>=self._length:
 			raise IndexError('index is too large')
 		else:
